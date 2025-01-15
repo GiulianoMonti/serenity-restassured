@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.claro.automation.planmgmt.dataaccess.mapper.PlanListMapper">
+    <resultMap id="resultMapPlanList" type="Plan">
+        <result property="productType" column="PLS_PRODUCT_TYPE"/>
+        <result property="planId" column="PLS_PLAN_ID"/>
+        <result property="price" column="PLS_PRICE"/>
+        <result property="currency" column="PLS_CURRENCY"/>
+        <result property="mbQuantity" column="PLS_MB_QUANTITY"/>
+        <result property="smsQuantity" column="PLS_SMS_QUANTITY"/>
+        <result property="minutesQuantity" column="PLS_MIN_QUANTITY"/>
+    </resultMap>
+
+    <select id="selectPlanList" resultMap="resultMapPlanList">
+        SELECT * FROM TABLE(PA_IOT_APIS.f_plan_list_request(#{providerId}, #{enterpriseId}, null))
+    </select>
+</mapper>

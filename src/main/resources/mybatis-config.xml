@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <typeAliases>
+        <package name="com.claro.automation.planmgmt.dataaccess.model"/>
+    </typeAliases>
+    <environments default="">
+        <environment id="">
+            <transactionManager type=""/>
+            <dataSource type="">
+                <property name="driver" value=""/>
+                <property name="url" value=""/>
+                <property name="username" value=""/>
+                <property name="password" value=""/>
+            </dataSource>
+        </environment>
+        <environment id="">
+            <transactionManager type=""/>
+            <dataSource type="">
+                <property name="driver" value=""/>
+                <property name="url" value=""/>
+                <property name="username" value=""/>
+                <property name="password" value=""/>
+            </dataSource>
+        </environment>
+        <environment id="">
+            <transactionManager type=""/>
+            <dataSource type="">
+                <property name="driver" value=""/>
+                <property name="url" value=""/>
+                <property name="username" value=""/>
+                <property name="password" value=""/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <package name="com.claro.automation.planmgmt.dataaccess.mapper"/>
+        <package name="com.claro.automation.dbloggerelastic.dataaccess.mapper"/>
+    </mappers>
+</configuration>

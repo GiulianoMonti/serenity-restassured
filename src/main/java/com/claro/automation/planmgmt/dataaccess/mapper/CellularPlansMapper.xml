@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.claro.automation.planmgmt.dataaccess.mapper.CellularPlansMapper">
+    <resultMap id="resultMapCellularPlans" type="CellularPlans">
+        <constructor>
+            <arg column="CPL_CLU_CELLULAR_NUMBER" javaType="String"/>
+            <arg column="CPL_STG_ID" javaType="String"/>
+            <arg column="CPL_RPL_ID" javaType="String"/>
+            <arg column="CPL_START_DATE" javaType="java.time.LocalDateTime"/>
+            <arg column="CPL_END_DATE" javaType="java.time.LocalDateTime"/>
+            <arg column="CPL_DUE_DATE" javaType="java.time.LocalDateTime"/>
+            <arg column="CPL_TCK_ID" javaType="String"/>
+            <arg column="CPL_USR_ID" javaType="String"/>
+            <arg column="CPL_LAST_UPDATED_DATE" javaType="java.time.LocalDateTime"/>
+            <arg column="CPL_ADD_DATE" javaType="java.time.LocalDateTime"/>
+            <arg column="CPL_ENT_ID" javaType="String"/>
+            <arg column="CPL_CFE_SDS_ID" javaType="String"/>
+            <arg column="CPL_DOWN_CARG_ID" javaType="String"/>
+            <arg column="CPL_DOWN_AMOUNT" javaType="Double"/>
+            <arg column="CPL_RPL_ONLINE" javaType="boolean"/>
+        </constructor>
+    </resultMap>
+
+    <select id="selectCellularPlans" resultMap="resultMapCellularPlans">
+        SELECT * FROM cellular_plans
+        WHERE CPL_CLU_CELLULAR_NUMBER = #{cellularNumber}
+        AND cpl_stg_id = 'AH'
+        AND cpl_due_date > SYSDATE + NUMTODSINTERVAL(10000, 'HOUR')
+    </select>
+</mapper>

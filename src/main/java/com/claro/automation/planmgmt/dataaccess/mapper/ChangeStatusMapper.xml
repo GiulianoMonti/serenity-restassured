@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.claro.automation.planmgmt.dataaccess.mapper.ChangeStatusMapper">
+    <resultMap id="resultMapCellularPlans" type="ChangeStatus">
+        <constructor>
+            <arg column="ICS_CLU_CELLULAR_NUMBER" javaType="String"/>
+            <arg column="ICS_STATUS" javaType="String"/>
+            <arg column="ICS_START_DATE" javaType="java.time.LocalDateTime"/>
+            <arg column="ICS_END_DATE" javaType="java.time.LocalDateTime"/>
+            <arg column="ICS_LAST_UPDATE_DATE" javaType="java.time.LocalDateTime"/>
+            <arg column="ICS_USR_ID" javaType="String"/>
+            <arg column="ICS_USR_ID_LAST_UPDATE" javaType="String"/>
+            <arg column="ICS_REASON_CODE_CM" javaType="String"/>
+            <arg column="ICS_REASON_CODE_STL" javaType="String"/>
+        </constructor>
+    </resultMap>
+
+    <delete id="deleteFromChangeStatus">
+        DELETE FROM iot_change_status
+        WHERE ics_reason_code_cm = 'IFD'
+        AND ICS_CLU_CELLULAR_NUMBER = #{cellularNumber}
+    </delete>
+</mapper>
