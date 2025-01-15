@@ -1,4 +1,3 @@
-QUERYPLANLIST-SERVICE-SERENITY
 
 Introducción
 
